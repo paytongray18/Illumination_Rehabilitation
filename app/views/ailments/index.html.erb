@@ -1,0 +1,5 @@
+<h1>Ailments Index</h1><br><br>
+
+<% @ailments.each do | ailment | %>
+        <h3><u><%=link_to ailment.name, ailment_path(ailment)%></u></h3>
+<% end %>

@@ -1,0 +1,7 @@
+<h1>Facilities Index</h1>
+
+<% @facilities.each do | facility | %>
+    <h3><u><%= link_to facility.name, facility_path(facility) %></u></h3>
+    Location: <%= facility.location %><br>
+    Status: <%= facility.status %><br><br>
+<% end %>

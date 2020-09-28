@@ -1,0 +1,5 @@
+<h1><%= @ailment.name %></h1>
+
+<% @ailment.patients.each do | patient | %>
+    <h3><%= link_to patient.name, patient_path(patient) %></h3>
+<% end %>
