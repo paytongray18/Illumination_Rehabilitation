@@ -1,0 +1,27 @@
+<h4> Create New Patient </h4>
+
+<%= form_with model:@patient do |f|%>
+<%=f.label :name%>
+<%=f.text_field :name%>
+<br/>
+<br/>
+<%=f.label :age%>
+<%=f.text_field :age%>
+<br/>
+<br/>
+<%=f.label :location%>
+<%=f.text_field :location%>
+<br/>
+<br/>
+<%=f.label :status%>
+<%=f.text_field :status%>
+<br/>
+<br/>
+<%=f.collection_select :ailment_id, @ailments, :id, :name %>
+<br/>
+<br/>
+<%=f.collection_select :doctor_id, @doctors, :id, :name %>
+<br/>
+<br/>
+<%=f.submit%>
+<%end%>

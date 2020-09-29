@@ -7,7 +7,8 @@
             <hr>
             <h4>Username: <%= a.user_name%></h4>
             <h4>Status: <%=a.status%></h4>
-            <h4>Facility: <%= a.facility.name %></h4>
-        </li>                   
+            <h4>Facility: <%= link_to a.facility.name, facility_path(a.facility) %></h4>
+        </li>
+        <% # button_to "Create Admin", {:controller => :administrators, :action => 'new'}, :method => :get %>                   
     <%end%>
 </ul>

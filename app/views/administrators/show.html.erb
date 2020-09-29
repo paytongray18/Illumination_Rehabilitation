@@ -1,3 +1,11 @@
 <h1> <%=@administrator.name%></h1>
+
+<h3>Status: <%= @administrator.status %>
          
-<h3><%= link_to @administrator.facility.name%></h3>
+<h3><%= link_to @administrator.facility.name, facility_path(@administrator.facility)%></h3>
+<br/>
+<br/>
+<%= button_to "Edit Admin", {:controller => :administrators, :action => 'edit', :id => @administrator.id}, :method => :get %>
+<br/>
+<br/>
+<%= button_to "Delete Admin", {:controller => :administrators, :action => 'destroy', :id => @administrator.id}, :method => :delete %>

@@ -1,1 +1,16 @@
 <h1><%= @facility.name %></h1>
+
+<h2><u>Facility Administrator:</u> <%= link_to @facility.administrator.name, administrator_path(@facility.administrator) %></h2>
+<h3><u>Facility Status:</u> <%= @facility.status %>
+<hr>
+<h3><u>Doctors</u></h3>
+<% @facility.doctors.all.each do | doctor | %>
+    Name: <%= link_to doctor.name, doctor_path(doctor) %><br>
+    Specialty: <%= doctor.specialty %><br><br>
+<% end %>
+<hr>
+<h3><u>Patients</u></h3>
+<% @facility.patients.all.each do | patient | %>
+    Name: <%= link_to patient.name, patient_path(patient) %><br>
+    Ailment: <%= patient.ailment.name %><br><br>
+<% end %>

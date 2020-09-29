@@ -1,0 +1,28 @@
+<%= form_with model: @doctor do | f | %>
+    
+    <%= f.label :name %> 
+    <%= f.text_field :name %>
+    <br>
+    <br>
+    <%= f.label :age %>
+    <%= f.number_field :age %>
+    <br>
+    <br>
+    <%= f.label :specialty %>
+    <%= f.text_field :specialty %>
+    <br>
+    <br>
+    <%= f.label :status %>
+    <%= f.text_field :status %>
+    <br>
+    <br>
+    Facility: <%= f.collection_select :facility_id, @facilities, :id, :name %>
+    <br>
+    <br>
+    <%= f.submit %>
+
+<% end %>
+
+
+
+<% #In the doctor’s path, you are able to create a doctor with it’s params. %>

@@ -1,0 +1,8 @@
+<%= form_with model: @facility do | f | %>
+    
+    <%= f.label :status %>
+    <%= f.text_field :status %>
+
+    <%= f.submit "Update Facility Status" %>
+
+<% end %>

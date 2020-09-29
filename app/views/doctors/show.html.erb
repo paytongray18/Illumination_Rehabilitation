@@ -1,0 +1,12 @@
+<h1><%= @doctor.name %></h1>
+
+<h2>Specialty: </h2> <h3><%= @doctor.specialty %></h3>
+
+<% Patient.all.each do | patient | %>
+    <% if patient.ailment.name == @doctor.specialty %>
+        <%= link_to patient.name, patient_path(patient) %><br>
+    <% end %>
+<% end %>
+<br>
+<br>
+<%= button_to "Delete Doctor", {:controller => :doctors, :action => 'destroy', :id => @doctor.id}, :method => :delete %>

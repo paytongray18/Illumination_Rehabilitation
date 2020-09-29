@@ -1,1 +1,8 @@
 <h1>Doctor Index</h1>
+
+<ul>
+<% @doctors.each do | doctor | %>
+    <h3><%= link_to doctor.name, doctor_path(doctor) %></h3>
+    Facility: <%= link_to doctor.facility.name, facility_path(doctor.facility) %>
+<% end %>
+</ul>
