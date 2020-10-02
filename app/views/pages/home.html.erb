@@ -1,21 +1,91 @@
-<h1>Welcome to True Freedom</h1>
+<h1> Experience True Freedom </h1>
+
+<div class="topnav">
+  <a class="active" href="/">Home</a>
+  <a href="/administrators">Administrators</a>
+  <a href="/patients">Patients</a>
+  <a href="/doctors">Doctors</a>
+  <a href="/ailments">Ailments</a>
+  <a href="/facilities">Facilities</a>
+  <a href="/sign_in">Sign-In</a>
+</div>
+
+<video src= "https://vod-progressive.akamaized.net/exp=1601672193~acl=%2Fvimeo-prod-skyfire-std-us%2F01%2F413%2F15%2F377069770%2F1574523029.mp4~hmac=77c982f2ac689300c5bffbb6dfc98ee0b5cab43363d915f803845ba7dfed517b/vimeo-prod-skyfire-std-us/01/413/15/377069770/1574523029.mp4" autoplay muted loop></video>
+
+<audio src="https://dm0qx8t0i9gc9.cloudfront.net/previews/audio/BsTwCwBHBjzwub4i4/ocean-beach_fykppjNd_NWM.mp3" autoplay loop></audio>
 
 <style>
+
 h1 {
-    font-size: 80px;
-    color: #fff;
+    font-size: 105px;
+    color: rgba(255, 255, 255, 0.65);
     text-align: center;
+    position:absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    padding-left: 190px;
+    padding-top: 290px;
     -webkit-animation: glow 1s ease-in-out infinite alternate;
     -moz-animation: glow 1s ease-in-out infinite alternate;
     animation: glow 1s ease-in-out infinite alternate;
-    margin: 10%
+}
+
+div {
+    display: fixed;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    overflow: hidden;
+}
+
+/* Add a black background color to the top navigation */
+.topnav {
+    width: 100%;
+    opacity: 70%;
+    background-color: #333;
+    overflow: hidden;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+    float: left;
+    position: relative;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 16px 24px;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.topnav a:last-child {
+    float: right;
+    margin-right: 25px;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+    background-color: #ddd;
+    color: blue;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+    background-color: #4CAF50;
+    color: purple;
 }
 
 body {
-    background-image: url('https://www.kdvsport.com/wp-content/uploads/2019/11/Sizzling-Summer-Family-Package-KDV.jpg');
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: 100% 100%;
-    box-shadow:inset 0 0 0 2000px rgba(255, 242, 61, 0.86);
+    font-family: sans-serif;
 }
+
+video {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+}
+
 </style>

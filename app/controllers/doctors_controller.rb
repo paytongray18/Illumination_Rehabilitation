@@ -1,10 +1,12 @@
 class DoctorsController < ApplicationController
+    
     def index
         @doctors = Doctor.all
     end
 
     def show
         @doctor = Doctor.find(params[:id])
+        # byebug
     end
 
     def new
@@ -14,8 +16,15 @@ class DoctorsController < ApplicationController
 
     def create
         @doctor = Doctor.new(doctor_params)
-        @doctor.save
-        redirect_to doctor_path(@doctor)
+        if @doctor.valid?
+            @doctor.save
+            # byebug
+            redirect_to doctor_path(@doctor)
+        else
+            flash[:errors] = @doctor.errors.full_messages
+            # byebug
+            redirect_to new_doctor_path
+        end
     end
 
     def edit
@@ -25,8 +34,16 @@ class DoctorsController < ApplicationController
 
     def update
         @doctor = Doctor.find(params[:id])
-        @doctor.update(doctor_params)
-        redirect_to doctor_path(@doctor)
+        # byebug
+        if @doctor.update(doctor_params)
+            # @doctor.update(doctor_params)
+            # byebug
+            redirect_to doctor_path(@doctor)
+        else
+            flash[:errors] = @doctor.errors.full_messages
+            # byebug
+            redirect_to edit_doctor_path
+        end
     end
 
     def destroy

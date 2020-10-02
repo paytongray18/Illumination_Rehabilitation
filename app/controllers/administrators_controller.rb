@@ -1,8 +1,8 @@
 class AdministratorsController < ApplicationController
-    # before_action :
+
+    before_action :authentification?, only: [:index, :show]
     
     def index
-
         @administrators = Administrator.all
         @facilities = Facility.all
         # byebug
@@ -17,14 +17,26 @@ class AdministratorsController < ApplicationController
     end
     
     def create
-        # session[:user_name]
         @administrator = Administrator.new(ad_params)
-        # if administrator.user_name ==  administrator.
-        @administrator.save
-        
-        
-        redirect_to administrator_path(@administrator)
-    end             
+        if @administrator.save && params[:administrator][:password]
+            # session[:id] = @administrator.id
+            # byebug
+            redirect_to '/sign_in'
+        else
+            flash[:errors] = @administrator.errors.full_messages
+            # byebug
+            redirect_to new_administrator_path
+        end
+    end  
+    
+    def authentification?  
+        # byebug 
+        if session[:id]
+            @administrator = Administrator.find(session[:id])
+        else
+            redirect_to '/sign_in'
+        end
+    end
 
     def edit
         @administrator = Administrator.find(params[:id])
@@ -32,8 +44,12 @@ class AdministratorsController < ApplicationController
 
     def update
         @administrator = Administrator.find(params[:id])
-        @administrator.update(ad_params)
-        redirect_to administrator_path
+        if @administrator.update(ad_params)
+            redirect_to administrator_path
+        else
+            flash[:errors] = @administrator.errors.full_messages
+            redirect_to edit_administrator_path
+        end
     end
 
     def destroy
@@ -45,11 +61,7 @@ class AdministratorsController < ApplicationController
     private
 
     def ad_params
-        params.require(:administrator).permit(:name,:user_name,:password,:status,:facility_id = nil)
+        params.require(:administrator).permit(:name, :user_name, :password, :status)
     end
-
-
-
-
 
 end

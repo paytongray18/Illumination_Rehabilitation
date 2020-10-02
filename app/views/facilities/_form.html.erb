@@ -1,8 +1,18 @@
+<% if flash[:errors] %>
+    <% flash[:errors].each do | error | %>
+        <li style="color: red"><%= error %></li>
+    <% end %>
+<% end %>
+
 <%= form_with model: @facility do | f | %>
     
-    <%= f.label :status %>
-    <%= f.text_field :status %>
+    <strong><%= f.label :status %></strong><br>
+    <p><strong> Please Use only the Following: </strong></p>
+    <p> (safe, warning, unsafe, blackout) </p>
+    <%= f.text_field :status %><br><br>
 
-    <%= f.submit "Update Facility Status" %>
+    Assign Administrator:<br> <%= f.collection_select :administrator_id, @administrators, :id, :name %><br><br>
+
+    <%= f.submit "Update Status" %>
 
 <% end %>

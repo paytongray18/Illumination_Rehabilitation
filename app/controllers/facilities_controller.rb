@@ -9,6 +9,7 @@ class FacilitiesController < ApplicationController
 
     def edit
         @facility = Facility.find(params[:id])
+        @administrators = Administrator.all
     end
 
     def update

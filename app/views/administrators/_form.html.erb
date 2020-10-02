@@ -1,17 +1,25 @@
+<% if flash[:errors] %>
+    <% flash[:errors].each do | error | %>
+        <li style="color: red"><%= error %></li>
+    <% end %>
+<% end %>
+
 <%=form_with model: @administrator do |f|%>
-<%=f.label :name%>
+Name<br>
 <%=f.text_field :name%>
 <br/>
 <br/>
-<%=f.label :user_name%>
+Username<br>
 <%=f.text_field :user_name%>
 <br/>
 <br/>
-<%=f.label :password%>
-<%=f.text_field :password%>
+Password<br>
+<%=f.password_field :password%>
 <br/>
 <br/>
-<%=f.label :status%>
+<strong><%=f.label :status%></strong><br>
+<p><strong> Please Use only the Following: </strong></p>
+<p> (healthy, warning, incompacitated) </p>
 <%=f.text_field :status%>
 <br/>
 <br/>

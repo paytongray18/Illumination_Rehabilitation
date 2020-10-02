@@ -1,25 +1,35 @@
+<% if flash[:errors] %>
+    <% flash[:errors].each do | error | %>
+        <li style="color: red"><%= error %></li>
+    <% end %>
+<% end %>
+
 <h4> Create New Patient </h4>
 
 <%= form_with model:@patient do |f|%>
-<%=f.label :name%>
+<%=f.label :name%><br>
 <%=f.text_field :name%>
 <br/>
 <br/>
-<%=f.label :age%>
-<%=f.text_field :age%>
+<%=f.label :age%><br>
+<%=f.number_field :age%>
 <br/>
 <br/>
-<%=f.label :location%>
+<%=f.label :location%><br>
 <%=f.text_field :location%>
 <br/>
 <br/>
-<%=f.label :status%>
+<strong><%=f.label :status%></strong><br>
+<p><strong> Please Use only the Following: </strong></p>
+<p> (healthy, warning, incompacitated) </p>
 <%=f.text_field :status%>
 <br/>
 <br/>
+Ailment<br>
 <%=f.collection_select :ailment_id, @ailments, :id, :name %>
 <br/>
 <br/>
+Doctor<br>
 <%=f.collection_select :doctor_id, @doctors, :id, :name %>
 <br/>
 <br/>
